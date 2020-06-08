@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-class Employee {
+public class Employee {
     private @Id @GeneratedValue Long id;
     private String name;
     private Roles role;
@@ -18,20 +18,18 @@ class Employee {
 
         this.name = name;
         this.role = role;
+        switch (role) {
+            case MACHACA:
+                this.salary = 10000;
+                break;
+            case JARDINERO:
+                this.salary = 20000;
+                break;
+            case JEFE:
+                this.salary = 50000;
+                break;
+        }
 
-        // TODO Conseguir que llene el campo salary cuando lo entras por POST
-       // switch (role) {
-       //     case MACHACA:
-       //         this.salary = 10000;
-       //         break;
-       //     case JARDINERO:
-       //         this.salary = 20000;
-       //         break;
-       //     case JEFE:
-       //         this.salary = 100000;
-       //         break;
-       // }
-        this.salary = 20000;
     }
 
     public Long getId() {
@@ -65,6 +63,10 @@ class Employee {
     public void setSalary(Integer salary) {
         this.salary = salary;
     }
+
+
+
+
 
     @Override
     public boolean equals(Object o) {

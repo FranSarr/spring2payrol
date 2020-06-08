@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.exercici2.spring2rest.Roles.*;
+
 @RestController
 class EmployeeController {
     private final EmployeeRepository repository;
@@ -21,6 +23,18 @@ class EmployeeController {
 
     @PostMapping("/employees")
     Employee newEmployee(@RequestBody Employee newEmployee) {
+        switch (newEmployee.getRole()) {
+            case MACHACA:
+                newEmployee.setSalary(10000);
+                break;
+            case JARDINERO:
+                newEmployee.setSalary(20000);
+                break;
+            case JEFE:
+                newEmployee.setSalary(50000);
+                break;
+        }
+
         return repository.save(newEmployee);
     }
 
