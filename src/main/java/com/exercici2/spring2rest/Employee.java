@@ -10,7 +10,7 @@ class Employee {
     private @Id @GeneratedValue Long id;
     private String name;
     private Roles role;
-    private long salary;
+    private Integer salary;
 
     Employee() {}
 
@@ -19,9 +19,19 @@ class Employee {
         this.name = name;
         this.role = role;
 
-        // TODO Conseguir que enseñe en la salida el cxampo salary
-        this.salary = 100000;
-
+        // TODO Conseguir que llene el campo salary cuando lo entras por POST
+       // switch (role) {
+       //     case MACHACA:
+       //         this.salary = 10000;
+       //         break;
+       //     case JARDINERO:
+       //         this.salary = 20000;
+       //         break;
+       //     case JEFE:
+       //         this.salary = 100000;
+       //         break;
+       // }
+        this.salary = 20000;
     }
 
     public Long getId() {
@@ -36,6 +46,10 @@ class Employee {
         return this.role;
     }
 
+    public Integer getSalary() {
+        return salary;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -46,6 +60,10 @@ class Employee {
 
     public void setRole(Roles role) {
         this.role = role;
+    }
+
+    public void setSalary(Integer salary) {
+        this.salary = salary;
     }
 
     @Override
