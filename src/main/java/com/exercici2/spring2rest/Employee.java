@@ -6,13 +6,13 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class Employee {
+    class Employee {
     private @Id @GeneratedValue Long id;
     private String name;
     private Roles role;
     private Integer salary;
 
-    Employee() {}
+    public Employee() {}
 
     Employee(String name, Roles role) {
 
