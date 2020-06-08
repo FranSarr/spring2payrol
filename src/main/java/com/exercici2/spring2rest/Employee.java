@@ -9,14 +9,19 @@ import java.util.Objects;
 class Employee {
     private @Id @GeneratedValue Long id;
     private String name;
-    private String role;
+    private Roles role;
+    private long salary;
 
     Employee() {}
 
-    Employee(String name, String role) {
+    Employee(String name, Roles role) {
 
         this.name = name;
         this.role = role;
+
+        // TODO Conseguir que enseñe en la salida el cxampo salary
+        this.salary = 100000;
+
     }
 
     public Long getId() {
@@ -27,7 +32,7 @@ class Employee {
         return this.name;
     }
 
-    public String getRole() {
+    public Roles getRole() {
         return this.role;
     }
 
@@ -39,7 +44,7 @@ class Employee {
         this.name = name;
     }
 
-    public void setRole(String role) {
+    public void setRole(Roles role) {
         this.role = role;
     }
 
@@ -60,8 +65,8 @@ class Employee {
         return Objects.hash(this.id, this.name, this.role);
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" + "id=" + this.id + ", name='" + this.name + '\'' + ", role='" + this.role + '\'' + '}';
+   @Override
+   public String toString() {
+        return "Employee{" + "id=" + this.id + ", name='" + this.name + '\'' + ", role='" + this.role + '\'' + ", salary='" + this.salary + '\'' + '}';
     }
 }

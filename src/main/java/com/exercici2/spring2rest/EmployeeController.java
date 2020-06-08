@@ -24,7 +24,21 @@ class EmployeeController {
         return repository.save(newEmployee);
     }
 
+
+    //TODO Conseguir que busque por roles
+
+   // @GetMapping("/employees/{role}")
+   // List<Employee> perRoles (@PathVariable Roles role) {
+   //     return repository.findByRoles(role)
+   //             .orElseThrow(() -> new EmployeeNotFoundException(role));
+   // }
+
+
+
     // Single item
+
+
+
 
     @GetMapping("/employees/{id}")
     Employee one(@PathVariable Long id) {
