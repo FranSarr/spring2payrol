@@ -41,12 +41,13 @@ class EmployeeController {
 
     //TODO Conseguir que busque por roles
 
-   // @GetMapping("/employees/{role}")
-   // List<Employee> perRoles (@PathVariable Roles role) {
-   //     return repository.findByRoles(role)
-   //             .orElseThrow(() -> new EmployeeNotFoundException(role));
-   // }
+   @GetMapping("/employees/{role}")
+   List<Employee> perRoles (@PathVariable Roles role) {
+   return repository.findByRole(role);
 
+       // TODO conseguir que vaya el error si no lo encuentra
+       //   .orElseThrow(() -> new EmployeeNotFoundException(role));
+   }
 
 
     // Single item

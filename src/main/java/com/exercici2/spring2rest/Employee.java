@@ -3,6 +3,7 @@ package com.exercici2.spring2rest;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import java.util.Objects;
 
 @Entity
