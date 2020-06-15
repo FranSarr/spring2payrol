@@ -29,6 +29,8 @@ import java.util.Objects;
             case JEFE:
                 this.salary = 50000;
                 break;
+            default:
+                this.salary = 0;
         }
 
     }

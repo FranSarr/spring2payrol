@@ -6,8 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-// TODO hacer que implementar el interfaz
 interface EmployeeRepository extends JpaRepository<Employee, Long> {
-    @Query("select empleado from Employee empleado where empleado.getRole() like %?1")
+    @Query("select empleado from Employee empleado where empleado.role = :role")
     List<Employee> findByRole(Roles role);
 }

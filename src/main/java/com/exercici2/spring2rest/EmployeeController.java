@@ -1,7 +1,7 @@
 package com.exercici2.spring2rest;
 
 import org.springframework.web.bind.annotation.*;
-
+import java.io.*;
 import java.util.List;
 
 import static com.exercici2.spring2rest.Roles.*;
@@ -33,21 +33,21 @@ class EmployeeController {
             case JEFE:
                 newEmployee.setSalary(50000);
                 break;
+            default:
+                newEmployee.setSalary(0);
         }
 
         return repository.save(newEmployee);
     }
 
-
-    //TODO Conseguir que busque por roles
-
-   @GetMapping("/employees/{role}")
-   List<Employee> perRoles (@PathVariable Roles role) {
-   return repository.findByRole(role);
+   @GetMapping("/employees/roles/{role}")
+    List<Employee> perRoles (@PathVariable Roles role) {
+    return repository.findByRole(role);
 
        // TODO conseguir que vaya el error si no lo encuentra
        //   .orElseThrow(() -> new EmployeeNotFoundException(role));
    }
+
 
 
     // Single item
